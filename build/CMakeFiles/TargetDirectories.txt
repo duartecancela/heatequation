@@ -1,3 +1,0 @@
-/home/alunos/tei/2024/tei13683/heatequation/build/CMakeFiles/farao.dir
-/home/alunos/tei/2024/tei13683/heatequation/build/CMakeFiles/edit_cache.dir
-/home/alunos/tei/2024/tei13683/heatequation/build/CMakeFiles/rebuild_cache.dir
