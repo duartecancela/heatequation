@@ -4,7 +4,7 @@
 #include "farao.h"
 
 void heat_diffusion_2d() {
-    double alfa_gold = 127; // Difusividade térmica (mm²/ms)
+    double alfa_gold = 127; // Condutividade térmica (mm²/ms)
 
     int M = 100; // Dimensão X da placa (mm)
     int N = 100; // Dimensão Y da placa (mm)
@@ -20,7 +20,7 @@ void heat_diffusion_2d() {
     double T0 = 25.0; // Temperatura inicial (°C)
     double Tb = 100.0; // Temperatura nas bordas (°C)
 
-    // Inicialização: Condições internas e de contorno
+    // Condições internas iniciais 
     for (int m = 0; m < M; m++) {
         for (int n = 0; n < N; n++) {
             A[m][n] = T0;
@@ -28,6 +28,7 @@ void heat_diffusion_2d() {
         }
     }
 
+    // condições de contorno
     for (int m = 0; m < M; m++) {
         A[m][0] = B[m][0] = Tb;
         A[m][N - 1] = B[m][N - 1] = Tb;
@@ -37,7 +38,7 @@ void heat_diffusion_2d() {
         A[M - 1][n] = B[M - 1][n] = Tb;
     }
 
-    // Evolução temporal
+    // Evolução temporal em milisegundos
     double t = 0.0;
     double final_time = 30000.0; // 30 segundos em milissegundos
     double dt = 1.0; // Passo de tempo (ms)
@@ -75,7 +76,7 @@ void heat_diffusion_2d() {
     }
     out_file.close();
 
-    // Libera memória
+    // Liberta memória
     for (int m = 0; m < M; m++) {
         delete[] A[m];
         delete[] B[m];
